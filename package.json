@@ -1,6 +1,6 @@
 {
   "name": "egoscue",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utils for helping Ann-Margaregt Giovino",
   "main": "src/generate_photo_template.js",
   "author": "Jeff Gladchun <jeffgladchun@gmail.com>",
@@ -9,7 +9,7 @@
     "start": "node src/generate_photo_template.js"
   },
   "bin": {
-    "generate_photo_template": "./src/generate_photo_template.js"
+    "egoscue": "./src/generate_photo_template.js"
   },
   "dependencies": {
     "bluebird": "^3.4.7",
