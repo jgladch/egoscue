@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 'use strict';
 
 var _bluebird = require('bluebird');
@@ -83,6 +85,7 @@ fs.readdirAsync(egoscuePath).then(function (files) {
     }]);
   } else {
     console.log('There are no photos for this client yet...');
+    process.exit(0);
   }
 }).then(function (answers) {
   sessionNum = answers.sessionNum;
@@ -115,7 +118,7 @@ fs.readdirAsync(egoscuePath).then(function (files) {
   return _bluebird2.default.all(promises);
 }).then(function () {
   bar.tick();
-  return gm(clientPath + '/' + fileName + '/' + fileName + '.jpg').rotate('#FFF', -90).fill('#FFFFFF').fontSize('100px').drawText(110, 110, '#' + sessionNum + ' ' + fileName, 'NorthEast').writeAsync(clientPath + '/' + fileName + '.jpg');
+  return gm(clientPath + '/' + fileName + '/' + fileName + '.jpg').rotate('#FFF', -90).fill('#FFFFFF').fontSize('100px').drawText(110, 110, '#' + sessionNum + ' ' + fileName, 'NorthEast').writeAsync(clientPath + '/' + fileName + '/' + fileName + '.jpg');
 }).then(function () {
   bar.tick();
   return fs.unlinkAsync(tempDir + '/top.jpg');
